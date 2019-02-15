@@ -1,0 +1,23 @@
+<h2>All our Flats</h2>
+
+<div class="row">
+<% @flats.each do |flat| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-ld-3">
+    <div class="card">
+      <div class="card-image" style="background-image: url(<%= flat.pictur_url %>)"></div>
+      <div class="card-content">
+        <div><%= flat.name %></div>
+        <div><%= flat.address %></div>
+        <div style="font-weight: bold;"><%= flat.price_per_night %> <i class="fas fa-euro-sign"></i></div>
+        <div style="font-weight: bold;"><%= flat.number_of_guests %> <i class="fas fa-hand-middle-finger"></i> Max capacity</div>
+      </div>
+      <div class="card-actions">
+        <%= link_to("See", flat_path(flat), class: "btn btn-primary") %>
+        <%= link_to("Edit", flat_path(flat), class: "btn btn-secondary") %>
+        <%= link_to("Delete", flat_path(flat), method: :delete, class: "btn btn-warning") %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
